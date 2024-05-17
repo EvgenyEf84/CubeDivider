@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PrefabCreator : MonoBehaviour
 {
     [SerializeField] private Cube _cube = new Cube();

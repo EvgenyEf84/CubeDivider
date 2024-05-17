@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Cube : MonoBehaviour
 {
     [SerializeField] private int _separationChance = 100;
@@ -47,14 +48,14 @@ public class Cube : MonoBehaviour
     {
         _material.color = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
     }
+
     public void TryDivide()
     {
         int _minSeparationChance = 0;
         int _maxSeparationChance = 101;
 
         float probability = UnityEngine.Random.Range(_minSeparationChance, _maxSeparationChance);
-        Debug.Log(_separationChance);
-
+   
         if (_separationChance >= probability)
         {
             CreatingNewCubes?.Invoke(this);
