@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Renderer))]
 public class Cube : MonoBehaviour
 {
     [SerializeField] private int _separationChance = 100;
 
-    public event Action<Cube> CreatingNewCubes;
-    public event Action<Cube> NotCreatingNewCubes;
-
+    public event Action<Cube> CreatedNewCubes;
+   
     private Material _material;
     private Rigidbody _rigidbody;
     private int _decreaseNumber = 2;
@@ -46,7 +46,7 @@ public class Cube : MonoBehaviour
 
     private void SetColor()
     {
-        _material.color = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
+        _material.color = UnityEngine.Random.ColorHSV();
     }
 
     public void TryDivide()
@@ -58,7 +58,7 @@ public class Cube : MonoBehaviour
    
         if (_separationChance >= probability)
         {
-            CreatingNewCubes?.Invoke(this);
+            CreatedNewCubes?.Invoke(this);
         }
     }
 }

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PrefabCreator : MonoBehaviour
 {
-    [SerializeField] private Cube _cube = new Cube();
+    [SerializeField] private Cube _prefab;
     [SerializeField] private float _explodeForce;
 
     private void OnEnable()
     {
-        _cube.CreatingNewCubes += CreateCubes;
+        _prefab.CreatedNewCubes += CreateCubes;
     }
 
     private void OnDisable()
     {
-        _cube.CreatingNewCubes -= CreateCubes;
+        _prefab.CreatedNewCubes -= CreateCubes;
     }
 
     private void CreateCubes(Cube cube)
