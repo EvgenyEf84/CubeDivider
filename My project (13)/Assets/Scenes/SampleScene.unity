@@ -409,7 +409,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0987578, y: 0.7180167, z: -0.104115136, w: 0.68107194}
-  m_LocalPosition: {x: -3.487236, y: 27.316189, z: 66.26556}
+  m_LocalPosition: {x: -29.504393, y: 35.034164, z: 67.64054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a077d3923e314c645b2c76d5ac800791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _separationChance: 100
 --- !u!114 &1351882418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,9 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9620b2cace036dc45b9ade5ebb8a7e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explodeRadius: 100
-  _explodeForce: 200
-  _effect: {fileID: 417761080263594739, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  _explodeForce: 30000
   _cube: {fileID: 1351882417}
 --- !u!114 &1351882419
 MonoBehaviour:
@@ -481,8 +480,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cube: {fileID: 1351882417}
-  _effect: {fileID: 417761080263594739, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
-  _explodeRadius: 100
   _explodeForce: 200
 --- !u!1 &1757885245
 GameObject:
@@ -654,8 +651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b4e541e7776354fb71af492b99ae0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
-  _exploder: {fileID: 0}
 --- !u!114 &1757885253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,9 +663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a24ac811086f74499fe7d694a738e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explodeRadius: 0
-  _explodeForce: 0
-  _effect: {fileID: 0}
 --- !u!1001 &1854831772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -927,8 +919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cube: {fileID: 7963277830207850422}
-  _effect: {fileID: 417761080263594739, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
-  _explodeRadius: 100
   _explodeForce: 300
 --- !u!114 &7963277830207850421
 MonoBehaviour:
@@ -942,9 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9620b2cace036dc45b9ade5ebb8a7e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explodeRadius: 100
-  _explodeForce: 300
-  _effect: {fileID: 417761080263594739, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  _explodeForce: 3000
   _cube: {fileID: 7963277830207850422}
 --- !u!114 &7963277830207850422
 MonoBehaviour:
@@ -958,6 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a077d3923e314c645b2c76d5ac800791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _separationChance: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

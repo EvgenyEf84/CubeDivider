@@ -6,18 +6,16 @@ using UnityEngine;
 public class PrefabCreator : MonoBehaviour
 {
     [SerializeField] private Cube _cube = new Cube();
-    [SerializeField] private ParticleSystem _effect;
-    [SerializeField] private float _explodeRadius;
     [SerializeField] private float _explodeForce;
 
     private void OnEnable()
     {
-        _cube.CreateNewCubes += CreateCubes;
+        _cube.CreatingNewCubes += CreateCubes;
     }
 
     private void OnDisable()
     {
-        _cube.CreateNewCubes -= CreateCubes;
+        _cube.CreatingNewCubes -= CreateCubes;
     }
 
     private void CreateCubes(Cube cube)
@@ -31,9 +29,26 @@ public class PrefabCreator : MonoBehaviour
         {
             Cube newCube = Instantiate(cube, transform.position, Quaternion.identity);
             newCube.Init();
-            newCube.GetComponent<Rigidbody>().AddExplosionForce(_explodeForce, transform.position, _explodeRadius);
+
+            foreach (Rigidbody explorableObject in GetExplorableObjects())
+            {
+                explorableObject.AddExplosionForce(_explodeForce, transform.position, transform.localScale.x);
+            }
+        }
+    }
+
+    private List<Rigidbody> GetExplorableObjects()
+    {
+        Collider[] hits = Physics.OverlapBox(transform.position, transform.localScale);
+
+        List<Rigidbody> cubes = new();
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.attachedRigidbody != null)
+                cubes.Add(hit.attachedRigidbody);
         }
 
-        Instantiate(_effect, transform.position, transform.rotation);
+        return cubes;
     }
 }

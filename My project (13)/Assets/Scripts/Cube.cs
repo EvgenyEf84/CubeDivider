@@ -3,16 +3,19 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    public event Action<Cube> CreateNewCubes;
-    public event Action<Cube> NotCreateNewCubes;
+    [SerializeField] private int _separationChance = 100;
+
+    public event Action<Cube> CreatingNewCubes;
+    public event Action<Cube> NotCreatingNewCubes;
 
     private Material _material;
+    private Rigidbody _rigidbody;
     private int _decreaseNumber = 2;
-    private int _separationChance=100;
 
     private void Awake()
     {
         _material = GetComponent<Renderer>().material;
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void OnMouseUpAsButton()
@@ -50,17 +53,11 @@ public class Cube : MonoBehaviour
         int _maxSeparationChance = 101;
 
         float probability = UnityEngine.Random.Range(_minSeparationChance, _maxSeparationChance);
-        
+        Debug.Log(_separationChance);
 
         if (_separationChance >= probability)
         {
-            Debug.Log(_separationChance);
-            CreateNewCubes?.Invoke(this);
-        }
-        else
-        {
-            Debug.Log(_separationChance);
-            NotCreateNewCubes?.Invoke(this);
+            CreatingNewCubes?.Invoke(this);
         }
     }
 }
