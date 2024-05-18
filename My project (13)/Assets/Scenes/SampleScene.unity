@@ -465,8 +465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9620b2cace036dc45b9ade5ebb8a7e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explodeForce: 30000
-  _cube: {fileID: 1351882417}
 --- !u!114 &1351882419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faea958a28463974aa0f5d5cabe18d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cube: {fileID: 1351882417}
+  _prefab: {fileID: 1351882417}
   _explodeForce: 200
 --- !u!1 &1757885245
 GameObject:
@@ -918,7 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faea958a28463974aa0f5d5cabe18d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cube: {fileID: 7963277830207850422}
+  _prefab: {fileID: 7963277830207850422}
   _explodeForce: 300
 --- !u!114 &7963277830207850421
 MonoBehaviour:
@@ -932,8 +930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9620b2cace036dc45b9ade5ebb8a7e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explodeForce: 3000
-  _cube: {fileID: 7963277830207850422}
 --- !u!114 &7963277830207850422
 MonoBehaviour:
   m_ObjectHideFlags: 0

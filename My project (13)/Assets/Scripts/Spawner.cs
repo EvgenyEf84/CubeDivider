@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefabCreator : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [SerializeField] private Cube _prefab;
     [SerializeField] private float _explodeForce;
 
     private void OnEnable()
     {
-        _prefab.CreatedNewCubes += CreateCubes;
+        _prefab.Divided += CreateCubes;
     }
 
     private void OnDisable()
     {
-        _prefab.CreatedNewCubes -= CreateCubes;
+        _prefab.Divided -= CreateCubes;
     }
 
     private void CreateCubes(Cube cube)

@@ -7,7 +7,7 @@ public class Cube : MonoBehaviour
 {
     [SerializeField] private int _separationChance = 100;
 
-    public event Action<Cube> CreatedNewCubes;
+    public event Action<Cube> Divided;
    
     private Material _material;
     private Rigidbody _rigidbody;
@@ -58,7 +58,7 @@ public class Cube : MonoBehaviour
    
         if (_separationChance >= probability)
         {
-            CreatedNewCubes?.Invoke(this);
+            Divided?.Invoke(this);
         }
     }
 }
